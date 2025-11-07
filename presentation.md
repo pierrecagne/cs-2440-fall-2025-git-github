@@ -327,25 +327,20 @@ The remote repo now looks like this:
 
 - **GitHub is NOT Git!**
 - GitHub is a **web hosting service** for Git repositories
-- Just one of many options (GitLab, Bitbucket, Bitrise, self-hosted servers, etc.)
+- Just one of many options (GitLab, Bitbucket, self-hosted servers, etc.)
 - We use it as a convenient "central" meeting place
 
 ### What Does GitHub Add?
 
 - Web interface to browse repositories
-- **Pull Requests** - propose changes to someone else's repo
 - **Issues** - track bugs and features
-- **Forks** - your personal copy of someone else's repository
+- **Forks** - your personal copy of someone else's repo
+- **Pull Requests** - propose changes to someone else's repo
 - Access control and collaboration tools
+- And much more: CI/CD, wikis, AI copilots, etc.
 
-### Why Do We Use GitHub as "Central"?
-
-- Everyone can access it
-- One "source of truth" for the assignment
-- Easy submission via Pull Requests
-- Industry standard for open-source projects
-
-But remember: **Git works fine without GitHub!**
+### Important to know:
+GitHub is owned by Microsoft... They have commited (when they bought it) to keeping it open and free for public repositories, but be aware of the implications when using a proprietary service.
 
 ---
 
@@ -357,15 +352,15 @@ But remember: **Git works fine without GitHub!**
 ┌─────────────────────────────────────────────────────────────┐
 │                         GITHUB                              │
 │                                                             │
-│  ┌──────────────────────┐         ┌──────────────────────┐ │
-│  │ Original Repository  │ ← FORK →│   Your Fork          │ │
-│  │ (Instructor's)       │         │   (YourUsername)     │ │
-│  │  A---B---C           │         │   A---B---C          │ │
-│  └──────────────────────┘         └──────┬───────────────┘ │
+│  ┌──────────────────────┐          ┌──────────────────────┐ │
+│  │ Original Repository  │ ← FORK → │   Your Fork          │ │
+│  │                      │          │                      │ │
+│  │  A---B---C           │          │   A---B---C          │ │
+│  └──────────────────────┘          └──────┬───────────────┘ │
 │              ↑                            │                 │
 │              │                            │                 │
 │              │                            ↓                 │
-│         PULL REQUEST              git clone (download)     │
+│         PULL REQUEST              git clone (download)      │
 │         (you propose changes)             │                 │
 │              │                            │                 │
 │              │                            ↓                 │
@@ -398,14 +393,17 @@ But remember: **Git works fine without GitHub!**
 3. **Edit** - Make changes locally
 4. **Commit** - Save changes locally
 5. **Push** - Upload to your fork on GitHub
-6. **Pull Request** - Ask instructor to merge your changes
+6. Repeat steps 3-5 as needed until you're ready to submit.
+7. **Pull Request** - Make a pull request on the original repository
 
 ### Step-by-Step Instructions
+
+#### 0. Create a GitHub Account (if you don't have one already)
 
 #### 1. Fork the Repository (GitHub)
 - Go to the assignment repository on GitHub
 - Click the **"Fork"** button (top-right)
-- This creates YOUR copy of the repo on GitHub
+- This creates **your** copy of the repo on GitHub
 
 #### 2. Clone Your Fork (Git)
 ```bash
@@ -423,14 +421,17 @@ cd assignment-repo
 #### 4. Stage and Commit (Git)
 ```bash
 git status                           # See what changed
+# start working on the Java files
+git add Tree.java                    # Stage you changes after you're finished with a method
+git commit -m "Implement method ..." # Commit
+# ...
+# etc.
+# maybe push sometimes if you're worried about losing work
+# ...
+# until you're done
 git add .                            # Stage all changes
 git commit -m "Complete assignment"  # Commit with message
 ```
-
-**Commit message tips:**
-- Be descriptive but concise
-- "Complete homework 3" is good
-- "asdf" is bad
 
 #### 5. Push to GitHub (Git + GitHub)
 ```bash
@@ -440,7 +441,7 @@ git push origin main
 - Check GitHub - you should see your changes!
 
 #### 6. Create a Pull Request (GitHub)
-- Go to the **original** repository (instructor's repo)
+- Go to the **original** repository on GitHub
 - Click **"Pull requests"** → **"New pull request"**
 - Click **"compare across forks"**
 - Select your fork as the source
@@ -486,8 +487,6 @@ I'll now demonstrate:
 4. **Pushing** to GitHub
 5. **Bonus:** Simulating fetch/merge with two local clones
 
-Watch how Git and GitHub work together!
-
 ---
 
 ## Quick Troubleshooting
@@ -527,13 +526,7 @@ Watch how Git and GitHub work together!
 
 ## Resources
 
-- **Git Documentation:** https://git-scm.com/doc
+- **Official GitBook:** https://git-scm.com/book/en/v2
 - **GitHub Guides:** https://guides.github.com/
-- **Interactive Tutorial:** https://learngitbranching.js.org/
-- **Git Cheat Sheet:** https://education.github.com/git-cheat-sheet-education.pdf
+- **Stackoverflow:** https://stackoverflow.com/questions/tagged/git -- Somebody probably wrecked everything in the exact same way you did before!
 
----
-
-## Questions?
-
-Remember: The best way to learn Git is to use it. Don't be afraid to experiment (that's what version control is for)!
