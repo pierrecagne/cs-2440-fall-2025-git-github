@@ -1,5 +1,10 @@
 # CS 2490 -- Session 34 -- Git and GitHub: A Beginner's Guide
 
+## Intorduction
+
+Here goes an introduciotn about git and github.
+
+
 ## Why Are We Here?
 
 Your homework requires you to:
